@@ -1,0 +1,34 @@
+﻿<Window x:Class="ProyectoGestion_Ta.Windows.UsuarioWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoGestion_Ta.Windows"
+        mc:Ignorable="d"
+        Title="UsuarioWindow" Height="450" Width="800" WindowStyle="None" Background="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="92*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="White" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="btn_Cerrar" VerticalAlignment="Center" Width="16" Height="16" Style="{StaticResource AlfinCircular}" Background="#EC5B55" BorderBrush="{x:Null}" Click="btn_Cerrar_Click" />
+            <Button Grid.Column="1" x:Name="btn_min" VerticalAlignment="Center" Width="16" Height="16" Style="{StaticResource AlfinCircular}" Background="#F6BE3F" BorderBrush="{x:Null}" Click="btn_min_Click"/>
+        </Grid>
+        <Grid Grid.Row="1" Background="#152644">
+            <StackPanel Margin="0,0,633,0" >
+                <Button x:Name="btn_empleado" Content="Empleado" Style="{StaticResource Navegationbtn}" Click="btn_empleado_Click" Width="167" Height="47"/>
+                <Button x:Name="btn_permisos" Content="Permisos" Style="{StaticResource Navegationbtn}" Click="btn_permisos_Click"  Width="167" Height="47"/>
+                <Button x:Name="btn_capacitacion" Content="Capacitación" Style="{StaticResource Navegationbtn}" Click="btn_capacitacion_Click"  Width="167" Height="47"/>
+                <Button x:Name="btn_salir" Content="Salir" Style="{StaticResource Navegationbtn}" Click="btn_salir_Click"  Width="167" Height="47"/>
+            </StackPanel>
+            <Frame x:Name="SAview" Margin="167,0,0,0" Width="633" Height="414" NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>

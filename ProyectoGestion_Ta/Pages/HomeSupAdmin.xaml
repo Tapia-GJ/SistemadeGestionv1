@@ -1,0 +1,17 @@
+﻿<Page x:Class="ProyectoGestion_Ta.Pages.HomeSupAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProyectoGestion_Ta.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="414" d:DesignWidth="633"
+      Title="HomeSupAdmin" Background="#152644">
+    <Grid>
+        <Label Margin="144,0,144,106">
+            <Label.Background>
+                <ImageBrush ImageSource="/Pages/bienvenido-de-nuevo.png"/>
+            </Label.Background>
+        </Label>
+    </Grid>
+</Page>

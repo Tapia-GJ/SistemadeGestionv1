@@ -1,0 +1,52 @@
+﻿<Page x:Class="ProyectoGestion_Ta.Pages.Usuarios"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProyectoGestion_Ta.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="414" d:DesignWidth="633" Background="#152644"
+      Title="Usuarios">
+
+    <Grid>
+        <Border Background="White" CornerRadius="20" Width="600" Height="380">
+            <Grid>
+                <Label Content="Usuarios" HorizontalAlignment="Center" FontSize="35" Margin="0,1,0,0" VerticalAlignment="Top" Height="56"/>
+                <Button x:Name="btn_guardar" Content="Guardar" HorizontalAlignment="Left" Margin="454,96,0,0" VerticalAlignment="Top" Width="109" Height="30" Click="btn_guardar_Click"/>
+                <Label Content="Nombre" HorizontalAlignment="Left" Margin="4,51,0,0" VerticalAlignment="Top" Width="70" Height="31" FontSize="12"/>
+                <TextBox x:Name="txt_nombre" Style="{StaticResource TextBoxPages}" HorizontalAlignment="Left" Margin="79,53,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="120" Height="31" FontSize="12" />
+                <Label Content="Usuario" HorizontalAlignment="Left" Margin="203,53,0,0" VerticalAlignment="Top" Width="108" Height="31" FontSize="12"/>
+                <TextBox x:Name="txt_username" Style="{StaticResource TextBoxPages}" HorizontalAlignment="Left" Margin="315,53,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="120" Height="31" FontSize="12" />
+                <Label Content="Contraseña" HorizontalAlignment="Left" Margin="4,94,0,0" VerticalAlignment="Top" Width="70" Height="30" FontSize="12"/>
+                <TextBox x:Name="txt_contraseña" Style="{StaticResource TextBoxPages}" HorizontalAlignment="Left" Margin="79,96,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="120" Height="30" FontSize="12" />
+                <Label Content="Rol" HorizontalAlignment="Left" Margin="207,96,0,0" VerticalAlignment="Top" Width="43" Height="30" FontSize="12"/>
+                <ComboBox x:Name="selectRol" HorizontalAlignment="Left" Margin="251,96,0,0" VerticalAlignment="Top" Width="140" Height="30"/>
+                <TextBox x:Name="txt_PKUser" Visibility="Hidden" IsEnabled="False" HorizontalAlignment="Left" Height="30" Margin="15,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184"/>
+                <DataGrid x:Name="UserTable" AutoGenerateColumns="False" IsReadOnly="True" CanUserAddRows="False" ColumnWidth="*" IsSynchronizedWithCurrentItem="True" Margin="0,134,0,0">
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="ID" Binding="{Binding PkUsuario}" />
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                        <DataGridTextColumn Header="Usuario" Binding="{Binding UserName}" />
+                        <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
+                        <DataGridTextColumn Header="Rol" Binding="{Binding Roles.Nombre}" />
+                        <DataGridTemplateColumn Header="Editar" CanUserReorder="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Edit"  x:Name="btn_edit" Click="btn_edit_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Delete" CanUserReorder="False">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete" x:Name="btn_eliminar" Click="btn_eliminar_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
