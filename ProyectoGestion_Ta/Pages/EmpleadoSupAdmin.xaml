@@ -23,7 +23,7 @@
                 <Label Content="Fecha Nacimiento" HorizontalAlignment="Left" Margin="2,83,0,0" VerticalAlignment="Top" />
                 <TextBox x:Name="txt_fechanacimiento" HorizontalAlignment="Left" Style="{StaticResource TextBoxPages}" Margin="106,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Height="27" />
                 <Label Content="Dirección" HorizontalAlignment="Left" Margin="214,83,0,0" VerticalAlignment="Top" />
-                <TextBox x:Name="txt" HorizontalAlignment="Left" Style="{StaticResource TextBoxPages}" Margin="276,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Height="27" />
+                <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Style="{StaticResource TextBoxPages}" Margin="276,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="108" Height="27" />
                 <Label Content="Teléfono" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,83,0,0" />
                 <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Style="{StaticResource TextBoxPages}" Margin="442,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" Height="27" />
                 <Label Content="Email" HorizontalAlignment="Left" Margin="5,124,0,0" VerticalAlignment="Top" />
@@ -38,7 +38,8 @@
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}"/>
                         <DataGridTextColumn Header="Paterno" Binding="{Binding ApellidoPaterno}"/>
                         <DataGridTextColumn Header="Materno" Binding="{Binding ApellidoMaterno}"/>
-                        <DataGridTextColumn Header="FechaNacimiento" Binding="{Binding FechaNacimiento}"/>
+                        <DataGridTextColumn Header="Fecha de Nacimiento" Binding="{Binding FechaNacimiento}"/>
+                        <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}"/>
                         <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}"/>
                         <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
                         <DataGridTextColumn Header="Salario" Binding="{Binding Salario}"/>

@@ -128,9 +128,20 @@ namespace ProyectoGestion_Ta.Services
             {
                 using (var _context = new ApplicationDbContext())
                 {
+                    // Buscar el usuario en la base de datos que coincida con el username y el password
                     var usuario = _context.Usuarios.Include(y => y.Roles).FirstOrDefault(x => x.UserName == username && x.Password == password);
+
+                    // Verificar si se encontró el usuario
+                    if (usuario == null || usuario.Password != password)
+                    {
+                        // Si no se encontró el usuario, devolver un usuario vacío o null
+                        return null;
+                    }
+
+                    // Si se encontró el usuario y el password coincide, devolver el usuario
                     return usuario;
                 }
+
 
             }
             catch (Exception f)

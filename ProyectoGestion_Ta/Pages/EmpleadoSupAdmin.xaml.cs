@@ -51,6 +51,7 @@ namespace ProyectoGestion_Ta.Pages
             txt_paterno.Text = empleado.ApellidoPaterno.ToString(); 
             txt_materno.Text = empleado.ApellidoMaterno.ToString(); 
             txt_fechanacimiento.Text = empleado.FechaNacimiento.ToString(); 
+            txt_direccion.Text = empleado.Direccion.ToString(); 
             txt_telefono.Text = empleado.Telefono.ToString(); 
             txt_email.Text = empleado.Email.ToString(); 
             txt_salario.Text = empleado.Salario.ToString();
@@ -73,31 +74,75 @@ namespace ProyectoGestion_Ta.Pages
 
                     if (!String.IsNullOrEmpty(txt_nombre.Text) && !String.IsNullOrEmpty(txt_paterno.Text) && !String.IsNullOrEmpty(txt_materno.Text)
                         && !String.IsNullOrEmpty(txt_fechanacimiento.Text) && !String.IsNullOrEmpty(txt_telefono.Text) && !String.IsNullOrEmpty(txt_email.Text)
-                        && !String.IsNullOrEmpty(txt_salario.Text) && !String.IsNullOrEmpty(selectcargo.Text))
+                        && !String.IsNullOrEmpty(txt_salario.Text) && !String.IsNullOrEmpty(selectcargo.Text) && !String.IsNullOrEmpty(txt_direccion.Text))
                     {
-                        Empleado cargos = new Empleado()
+                        //Empleado cargos = new Empleado()
+                        //{
+                        //    Nombre = txt_nombre.Text,
+                        //    ApellidoPaterno = txt_paterno.Text,
+                        //    ApellidoMaterno = txt_materno.Text,
+                        //    Direccion = txt_direccion.Text,
+                        //    FechaNacimiento = DateTime.Parse(txt_fechanacimiento.Text),
+                        //    Telefono = txt_telefono.Text,
+                        //    Email = txt_email.Text,
+                        //    Salario = int.Parse(txt_salario.Text),
+                        //    CargoId = int.Parse(selectcargo.SelectedValue.ToString()),
+                        //};
+                        //services.AddEmpleado(cargos);
+                        //txt_nombre.Clear();
+                        //txt_paterno.Clear();
+                        //txt_direccion.Clear();
+                        //txt_materno.Clear();
+                        //txt_salario.Clear();
+                        //txt_email.Clear();
+                        //txt_fechanacimiento.Clear();
+                        //txt_PkEmpleado.Clear();
+                        //txt_telefono.Clear();
+                        //selectcargo.SelectedIndex = -1;
+                        //MessageBox.Show("Agregado correctamente");
+                        //GetemplecapaTable();
+                        string formatoFecha = "dd-MM-yyyy";
+                        string fechaNacimientoStr = txt_fechanacimiento.Text;
+
+                        DateTime fechaNacimiento;
+
+                        // Intenta analizar la cadena en la fecha utilizando el formato especificado
+                        if (DateTime.TryParseExact(fechaNacimientoStr, formatoFecha, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out fechaNacimiento))
                         {
-                            Nombre = txt_nombre.Text,
-                            ApellidoPaterno = txt_paterno.Text,
-                            ApellidoMaterno = txt_materno.Text,
-                            FechaNacimiento = DateTime.Parse(txt_fechanacimiento.Text),
-                            Telefono = txt_telefono.Text,
-                            Email = txt_email.Text,
-                            Salario = int.Parse(txt_salario.Text),
-                            CargoId = int.Parse(selectcargo.SelectedValue.ToString()),
-                        };
-                        services.AddEmpleado(cargos);
-                        txt_nombre.Clear();
-                        txt_paterno.Clear();
-                        txt_materno.Clear();
-                        txt_salario.Clear();
-                        txt_email.Clear();
-                        txt_fechanacimiento.Clear();
-                        txt_PkEmpleado.Clear();
-                        txt_telefono.Clear();
-                        selectcargo.SelectedIndex = -1;
-                        MessageBox.Show("Agregado correctamente");
-                        GetemplecapaTable();
+                            // Si la fecha se pudo analizar correctamente, entonces tiene el formato correcto.
+                            // Aquí puedes continuar con el resto del código.
+                            Empleado cargos = new Empleado()
+                            {
+                                Nombre = txt_nombre.Text,
+                                ApellidoPaterno = txt_paterno.Text,
+                                ApellidoMaterno = txt_materno.Text,
+                                Direccion = txt_direccion.Text,
+                                FechaNacimiento = fechaNacimiento, // Asignamos el valor de la fecha validada al objeto Empleado.
+                                Telefono = txt_telefono.Text,
+                                Email = txt_email.Text,
+                                Salario = int.Parse(txt_salario.Text),
+                                CargoId = int.Parse(selectcargo.SelectedValue.ToString()),
+                            };
+                            services.AddEmpleado(cargos);
+                            txt_nombre.Clear();
+                            txt_paterno.Clear();
+                            txt_direccion.Clear();
+                            txt_materno.Clear();
+                            txt_salario.Clear();
+                            txt_email.Clear();
+                            txt_fechanacimiento.Clear();
+                            txt_PkEmpleado.Clear();
+                            txt_telefono.Clear();
+                            selectcargo.SelectedIndex = -1;
+                            MessageBox.Show("Agregado correctamente");
+                            GetemplecapaTable();
+                        }
+                        else
+                        {
+                            // Si la fecha no pudo analizarse correctamente, entonces no tiene el formato esperado (dd-MM-yyyy).
+                            // Aquí puedes mostrar un mensaje de error al usuario o realizar cualquier otra acción que consideres adecuada.
+                            MessageBox.Show("Fecha de nacimiento no válida. Asegúrate de ingresarla en formato dd-MM-yyyy.");
+                        }
                     }
                     else
                     {
@@ -116,6 +161,7 @@ namespace ProyectoGestion_Ta.Pages
                             Nombre = txt_nombre.Text,
                             ApellidoPaterno = txt_paterno.Text,
                             ApellidoMaterno = txt_materno.Text,
+                            Direccion = txt_direccion.Text,
                             FechaNacimiento = DateTime.Parse(txt_fechanacimiento.Text),
                             Telefono = txt_telefono.Text,
                             Email = txt_email.Text,
@@ -125,6 +171,7 @@ namespace ProyectoGestion_Ta.Pages
                         services.UpdateEmpleado(int.Parse(txt_PkEmpleado.Text), cargos);
                         GetemplecapaTable();
                         txt_nombre.Clear();
+                        txt_direccion.Clear();
                         txt_paterno.Clear();
                         txt_salario.Clear();    
                         txt_materno.Clear();

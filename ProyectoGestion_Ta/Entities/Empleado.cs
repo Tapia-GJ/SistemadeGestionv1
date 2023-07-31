@@ -19,6 +19,7 @@ namespace ProyectoGestion_Ta.Entities
         public string Telefono { get; set; }
         public string Email { get; set; }
         public int Salario { get; set; }
+        public string Direccion { get; set; }
         // Propiedad de navegación para la relación con Cargo
         [ForeignKey("Cargos")]
         public int CargoId { get; set; }

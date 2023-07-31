@@ -49,13 +49,13 @@ namespace ProyectoGestion_Ta
             string user = txt_username.Text;
             string pasword = txt_password.Password.ToString();
             var responser = services.Login(user, pasword);
-            if (responser.Roles.Nombre == "SuperAdmin")
+            if (responser != null && responser.Roles.Nombre == "Administrador")
             {
                 SuperUsuario supusuario = new SuperUsuario();
                 Close();
                 supusuario.Show();
             }
-            else if (responser.Roles.Nombre == "Administrador")
+            else if (responser != null && responser.Roles.Nombre == "UsuarioNormal")
             {
                 UsuarioWindow usuario = new UsuarioWindow();
                 Close();
@@ -65,6 +65,7 @@ namespace ProyectoGestion_Ta
             {
                 MessageBox.Show("Usuario o Contraseña Incorrecta");
             }
+
 
 
         }

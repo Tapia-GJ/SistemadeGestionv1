@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Google.Protobuf.WellKnownTypes;
+using Microsoft.EntityFrameworkCore;
 using ProyectoGestion_Ta.Context;
 using ProyectoGestion_Ta.Entities;
 using System;
@@ -39,6 +40,7 @@ namespace ProyectoGestion_Ta.Services
                         emple.ApellidoPaterno = request.ApellidoPaterno;
                         emple.ApellidoMaterno = request.ApellidoMaterno;
                         emple.FechaNacimiento = request.FechaNacimiento;
+                        emple.Direccion = request.Direccion;
                         emple.Telefono = request.Telefono;
                         emple.Email = request.Email;
                         emple.Salario = request.Salario;
@@ -88,6 +90,7 @@ namespace ProyectoGestion_Ta.Services
                         empleado.ApellidoPaterno = request.ApellidoPaterno;
                         empleado.ApellidoMaterno = request.ApellidoMaterno;
                         empleado.FechaNacimiento = request.FechaNacimiento;
+                        empleado.Direccion = request.Direccion;
                         empleado.Telefono = request.Telefono;
                         empleado.Email = request.Email;
                         empleado.Salario = request.Salario;
